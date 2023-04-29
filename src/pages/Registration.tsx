@@ -29,7 +29,7 @@ const Registration: FC = () => {
                 )
               })}
           </select>
-        <input type="text" name="" id="" />
+        
     </main>
   )
 }
