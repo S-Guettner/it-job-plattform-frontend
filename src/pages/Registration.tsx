@@ -2,6 +2,10 @@ import { FC,useState, useEffect} from 'react'
 import countriesListGerman from '../data/countriesGerman.json'
 import countriesListEnglish from '../data/countriesEnglish.json'
 
+
+/* todo: add useContext for language selection */
+
+
 interface country {
   id: number, 
   alpha2:string, 
