@@ -16,8 +16,9 @@ interface country {
 
 const Registration: FC = () => {
 
-  const [countries, setCountries] = useState<country[] | undefined>()
+  const [countries, setCountries] = useState<country[]>()
 
+  // set country to choosen lang from context
   useEffect(() => {
     setCountries(countriesListGerman)
   },[])
