@@ -28,6 +28,9 @@ const Registration: FC = () => {
     
   return (
     <main>
+      <input className='border-2 block' type="email" name="email" id="email" placeholder='email'/>
+      <input className='border-2 block' type="password" name="password" id="password" placeholder='password'/>
+      <input className='border-2 block mb-20' type="password" name="password" id="password" placeholder='confirm password'/>
         <input className='border-2' placeholder='Name of the Company' type="text" name="companyName" id="companyName" />
         <p>Company Headquarters</p>
           <select className='block border-2' name="countries" id="countries">
