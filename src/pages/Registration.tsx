@@ -46,6 +46,7 @@ const Registration: FC = () => {
         <input className='border-2' type="text" name="streetAdress" id="streetAdress" placeholder='street adress'/>
           </div>
       <input className='border-2 w-32' type="number" min="1900" max="2099" step="1" name="foundingYear" id="foundingYear" placeholder='founding year'/>
+      <input className='border-2 w-32' type="number" min="1"  step="1" name="employes" id="employes" placeholder='employes'/>
     </main>
   )
 }
