@@ -51,7 +51,9 @@ const Registration: FC = () => {
       <input className='border-2 w-32' type="number" min="1900" max="2099" step="1" name="foundingYear" id="foundingYear" placeholder='founding year'/>
       <input className='border-2 w-32 block' type="number" min="1"  step="1" name="employes" id="employes" placeholder='employes'/>
       <p>company logo</p>
-      <input type="file" name="" id="" />
+      <input className='block mb-10' type="file" name="" id="" />
+
+      <button className='border-2 p-2 ml-10 rounded-lg'>Submit</button>
     </main>
   )
 }
