@@ -1,15 +1,17 @@
-import {createContext} from 'react'
+import {createContext,useState} from 'react'
 
 interface LanguageContext {
-    language:string
+    language:string,
+  
 }
 
 const defaultContext = {
-    language:"de"
+    language:"de",
 }
 
 const langContext = createContext<LanguageContext>(defaultContext)
 
 export {
-    langContext
+    langContext   
 }
+    
