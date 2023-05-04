@@ -25,6 +25,8 @@ const Registration: FC = () => {
     console.log(language)
     setCountries(language === "de" ? countriesListGerman :  countriesListEnglish )
   }, [language])
+
+
     
   return (
     <main>
