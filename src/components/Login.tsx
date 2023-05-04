@@ -1,11 +1,11 @@
-import { FC ,useRef, useState} from 'react'
+import { FC ,useRef} from 'react'
 
 
 
 const Login: FC = () => {
   
 
-    const [cookieAuth,setCookieAuth] = useState(false)
+    
 
     const emailRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
@@ -13,13 +13,14 @@ const Login: FC = () => {
     const clickHandler = () => {
         fetch(`http://localhost:9999/api/v1/company-login` , {
             method: "POST",
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify (
                 {
                     "userEmail": emailRef.current?.value,
                     "userPassword": passwordRef.current?.value
                 }
-                    )
+                    ),
+                    credentials:"include"
                 }
                 
                 )
