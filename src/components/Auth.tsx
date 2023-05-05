@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import DashboardCompany from "../pages/DashboardCompany"
-import Login from "./Login"
+import Login from "./LoginCompany"
 
 const Auth = () => {
 
@@ -15,19 +15,19 @@ const Auth = () => {
                 setIsLoading(false)
                 return
             }
-            
+
         })()
     }, [])
 
     if (isLoading) {
         return <h1>Loading...</h1>
     }
-    else{
-        return(
+    else {
+        return (
             <DashboardCompany />
         )
     }
-    
+
 }
 
 export default Auth;

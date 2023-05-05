@@ -31,11 +31,11 @@ const Login: FC = () => {
     }
   
     return (
-    <main>
-            <input className='border-2' ref={emailRef} placeholder='email' type="text" name="email" id="email" />
-            <input className='border-2' ref={passwordRef} placeholder='password' type="password" name="password" id="password" />
+        <section className='border-2 p-2'>
+            <input className='border-2 block w-full' ref={emailRef} placeholder='email' type="text" name="email" id="email" />
+            <input className='border-2 block w-full' ref={passwordRef} placeholder='password' type="password" name="password" id="password" />
             <button onClick={clickHandler}>Login</button>
-    </main>
+    </section>
   )
 }
 
