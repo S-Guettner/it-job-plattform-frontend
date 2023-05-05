@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import DashboardCompany from "../pages/DashboardCompany"
-import Login from "./LoginCompany"
+import Login from "../pages/LoginCompany"
 
 const Auth = () => {
 

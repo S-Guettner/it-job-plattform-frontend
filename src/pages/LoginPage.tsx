@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Login from '../components/LoginCompany.tsx'
+import Login from './LoginCompany.tsx'
 
 
 const LoginPage: FC = () => {

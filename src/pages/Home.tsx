@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Login from '../components/LoginCompany'
+import Login from './LoginCompany'
 
 
 
