@@ -1,7 +1,7 @@
-import { FC,useState, useEffect,useContext} from 'react'
+import { FC,useState, useEffect} from 'react'
 import countriesListGerman from '../data/countriesGerman.json'
 import countriesListEnglish from '../data/countriesEnglish.json'
-import { langContext } from '../context/LanguageContext'
+
 
 /* todo: add useContext for language selection */
 
@@ -16,7 +16,7 @@ interface country {
 
 const Registration: FC = () => {
 
-  const {language} = useContext(langContext)
+  const [language] = useState("de")
 
   const [countries, setCountries] = useState<country[]>(countriesListGerman)
 

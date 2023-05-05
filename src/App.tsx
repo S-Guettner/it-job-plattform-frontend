@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Home from "./pages/Home"
 import RegistrationCompany from "./pages/RegistrationCompany.tsx"
-import { langContext } from "./context/LanguageContext"
 import LoginPage from "./pages/LoginPage"
 import DashboardCompany from "./pages/DashboardCompany.tsx"
 import Auth from "./components/Auth.tsx"
@@ -14,7 +13,7 @@ function App() {
 
 
   return (
-    <langContext.Provider value={{ language: "de" }}>
+    
 
       <BrowserRouter>
         <Routes>
@@ -31,7 +30,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
-    </langContext.Provider>
+
 
   )
 }
