@@ -1,10 +1,26 @@
-import { FC } from 'react'
-
+import { FC, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import useUserStore from '../global/zustand.ts'
 
 
 const DashboardCompany: FC = () => {
+  const userState = useUserStore()
+  
+  useEffect(() => {
+    userState.userLoggedIn()
+  }, [userState.userLoggedInState])
+  
+  console.log(userState.userLoggedInState)
+ 
+  
+
+
   return (
-    <h1>Yeahhhhh!!!!</h1>
+    <div>
+      <h1>Yeahhhhh!!!!</h1>
+      <p>{userState.userLoggedInState.toString()}</p>  
+      <Link to={'/'}>Home</Link>  
+    </div>
   )
 }
 

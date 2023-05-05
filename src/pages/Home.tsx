@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Login from './LoginCompany'
-
+import useUserStore from '../global/zustand.ts'
 
 
 
@@ -11,7 +11,11 @@ const Home: FC = () => {
   const [loginOpen, setLoginOpen] = useState(false)
   const [registrationOpen, setRegistrationOpen] = useState(false)
 
-  console.log(registrationOpen)
+
+  const userState = useUserStore()
+  console.log(userState.userLoggedInState)
+
+ 
   return (
     <main>
       <div className='p-4 flex justify-between'>

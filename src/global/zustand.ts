@@ -7,8 +7,11 @@ interface UserState {
     userLoggedOut: () => void
 }
 
-const useBearStore = create<UserState>((set) => ({
+const useUserStore = create<UserState>((set) => ({
     userLoggedInState: false,
     userLoggedIn: () => set({ userLoggedInState:true }),
     userLoggedOut: () => set({ userLoggedInState: false}),
 }))
+
+
+export default useUserStore

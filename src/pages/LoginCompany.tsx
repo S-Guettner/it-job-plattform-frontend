@@ -1,9 +1,12 @@
 import { FC ,useRef} from 'react'
 import { useNavigate } from 'react-router-dom'
+import useUserStore from '../global/zustand.ts'
 
 
 const Login: FC = () => {
   
+    const userState = useUserStore()
+    console.log(userState.userLoggedInState)
 
     const navigator = useNavigate()
 
@@ -25,6 +28,7 @@ const Login: FC = () => {
                 )
                 if(response.ok){
                     navigator("/dashboard_company")
+                    userState.userLoggedIn
                 }else{
                     navigator("/login-page")
                 }
