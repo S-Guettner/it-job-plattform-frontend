@@ -1,17 +1,17 @@
 import { FC ,useRef} from 'react'
-
+import { useNavigate } from 'react-router-dom'
 
 
 const Login: FC = () => {
   
 
-    
+    const navigator = useNavigate()
 
     const emailRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
 
-    const clickHandler = () => {
-        fetch(`http://localhost:9999/api/v1/company-login` , {
+    const clickHandler = async () => {
+        const response = await fetch(`http://localhost:9999/api/v1/company-login` , {
             method: "POST",
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify (
@@ -22,9 +22,12 @@ const Login: FC = () => {
                     ),
                     credentials:"include"
                 }
-                
                 )
- 
+                if(response.ok){
+                    navigator("/dashboard_company")
+                }else{
+                    navigator("/login-page")
+                }
     }
   
     return (
