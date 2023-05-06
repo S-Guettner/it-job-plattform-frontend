@@ -15,6 +15,7 @@ interface country {
 }
 
 
+
 const Registration: FC = () => {
 
   const passwordValidationMessage = () => {
@@ -34,6 +35,7 @@ const Registration: FC = () => {
 
   const [countries] = useState<country[]>(countriesListGerman)
 
+
   const [password,setPassword] = useState<string>()
   const [confirmPassword,setConfirmPassword] = useState<string>()
   const [passwordErrorMessage,setPasswordErrorMessage] = useState("")
@@ -47,6 +49,7 @@ const Registration: FC = () => {
   const emailRef = useRef<HTMLInputElement>(null)
 
   const [countryState,setCountryState] = useState("Deutschland")
+  const [cityState,setCityState] = useState("Berlin")
 
   const [formValidationObject,setFormValidationObject] = useState({
     firstNameError:"",
@@ -61,24 +64,61 @@ const Registration: FC = () => {
   const formValidationMessage = () => {
 
     const telephoneNumberRegex = /^(\+49[-. ]?)?(\(0\)[-. ]?)?([0-9]{3,4}[-. ]?){2}[0-9]{3,4}$/i
+    const zipCodeRegex = /^(?!01000|99999)(0[1-9]\d{3}|[1-9]\d{4})$/
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
 
     if (!firstNameRef.current?.value){
       setFormValidationObject({
-        ...formValidationObject, firstNameError: "Bitte geben Sie ihren Vornamen ein"
+        ...formValidationObject, firstNameError: "Bitte geben Sie ihren Vornamen ein."
       })
     } else if (firstNameRef.current?.value) {
       setFormValidationObject({
         ...formValidationObject, firstNameError: ""
       })
-    } else if (!companyNameRef.current?.value) {
+    }  else if (!lastNameRef.current?.value) {
       setFormValidationObject({
-        ...formValidationObject, companyNameError: "Bitte geben Sie ihren Unternehmensnamen ein"
+        ...formValidationObject, firstNameError: "Bitte geben Sie ihren Nachnamen ein."
+      })
+    } else if (lastNameRef.current?.value) {
+      setFormValidationObject({
+        ...formValidationObject, firstNameError: ""
+      })
+    }  else if (!companyNameRef.current?.value) {
+      setFormValidationObject({
+        ...formValidationObject, companyNameError: "Bitte geben Sie ihren Unternehmensnamen ein."
+      })
+    } else if (companyNameRef.current?.value) {
+      setFormValidationObject({
+        ...formValidationObject, companyNameError: ""
       })
     } else if (!telephoneNumberRef.current?.value || !telephoneNumberRegex.test(telephoneNumberRef.current?.value)) {
       setFormValidationObject({
-        ...formValidationObject, companyNameError: "Bitte geben Sie eine gültige Telefonnummer ein"
+        ...formValidationObject, companyNameError: "Bitte geben Sie eine gültige Telefonnummer ein."
+      })
+    } else if (telephoneNumberRef.current?.value || telephoneNumberRegex.test(telephoneNumberRef.current?.value)) {
+      setFormValidationObject({
+        ...formValidationObject, companyNameError: ""
+      })
+    } else if (!cityRef.current?.value) {
+      setFormValidationObject({
+        ...formValidationObject, cityError: "Bitte geben Sie eine gültige Adresse ein."
+      })
+    } else if (cityRef.current?.value) {
+      setFormValidationObject({
+        ...formValidationObject, cityError: ""
+      })
+    }  
+    
+    else if (!zipCodeRef.current?.value || !zipCodeRegex.test(zipCodeRef.current.value)) {
+      setFormValidationObject({
+        ...formValidationObject, cityError: "Bitte geben Sie eine gültige Postleitzahl ein."
+      })
+    } else if (!emailRef.current?.value || !emailRegex.test(emailRef.current.value)) {
+      setFormValidationObject({
+        ...formValidationObject, emailError: "Bitte geben Sie eine gültige E-Mail adresse ein."
       })
     }
+    
 
 
 
@@ -114,10 +154,12 @@ const Registration: FC = () => {
           </select>
       </div>
       <div className='block mb-2'>
+          <p>{formValidationObject.cityError}</p>
           <input ref={cityRef} className='border-2 pl-2' type="text" name="city" id="city" placeholder='Stadt'/>
-          <input ref={zipCodeRef} className='border-2 pl-2' type="number" name="zipCode" id="zipCode" placeholder='Postleitzahl'/>  
+          <input ref={zipCodeRef} className='border-2 pl-2' type="text" name="zipCode" id="zipCode" placeholder='Postleitzahl'/>  
       </div>
       <div>
+          <p>{formValidationObject.emailError}</p>
           <input ref={emailRef} className='mb-4 border-2 pl-2 block w-full' type="email" name="email" id="email" placeholder='E-Mail'/>
           <input onChange={(e) => setPassword(e.target.value)} className='border-2 pl-2 block w-full' type="password" name="password" id="password" placeholder='Passwort'/>
           {/* check for matching passwords */}
@@ -125,8 +167,6 @@ const Registration: FC = () => {
           <p>{passwordErrorMessage}</p>
           <input onClick={passwordValidationMessage} onChange={(e) => setConfirmPassword(e.target.value)} className='border-2 pl-2 mb-7 block w-full' type="password" name="confirmPassword" id="confirmPassword" placeholder='Passwort wiederholen'/>
       </div>
-
-
 
         <button onClick={formValidationMessage} className='border-2 p-2  rounded-lg'>Registrieren</button>
       </section>
