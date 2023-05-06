@@ -66,10 +66,10 @@ const Registration: FC = () => {
 
   return (
     <main className='flex justify-center'>
-      <section className='w-1/2'>
+      <section className='w-1/3'>
       <h1 className='text-2xl mb-10'>Registriere dein Unternehmen</h1>
       
-      <div className='flex justify-between w-full'>
+      <div className='flex flex-wrap justify-between w-full'>
         <div>
           <label className='block' htmlFor="firstName">Vorname</label>
           <input ref={firstNameRef} className='border-2 mb-2 pl-2 rounded-lg' type="text" name="firstName" id="firstName"/>
@@ -80,7 +80,7 @@ const Registration: FC = () => {
         </div>
       </div>
       
-        <div className='flex justify-between w-full'>
+        <div className='flex flex-wrap justify-between w-full'>
       <div>
           <label className='block' htmlFor="companyName">Unternehmensname</label>
           <input ref={companyNameRef} className='border-2 pl-2  rounded-lg' type="text" name="companyName" id="companyName" />
@@ -106,7 +106,7 @@ const Registration: FC = () => {
           </select>
       </div>
 
-      <div className='flex justify-between mb-4'>
+        <div className='flex flex-wrap justify-between mb-4 '>
         <div>
             <label className='block' htmlFor="city">Stadt</label>
           <input ref={cityRef} className='border-2 pl-2 rounded-lg' type="text" name="city" id="city" />
