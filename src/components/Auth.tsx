@@ -14,6 +14,8 @@ const Auth = () => {
             if (response.ok) {
                 setIsLoading(false)
                 return
+            }else{
+                navigator('/company')
             }
 
         })()
