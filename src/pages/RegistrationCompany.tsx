@@ -1,10 +1,10 @@
 import { FC,useState, useRef} from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import countriesListGerman from '../data/countriesGerman.json'
-import countriesListEnglish from '../data/countriesEnglish.json'
 
 
-/* todo: add useContext for language selection */
+
+
 
 
 interface country {
@@ -120,10 +120,6 @@ const Registration: FC = () => {
       <div className='block mb-2'>
           <input ref={cityRef} className='border-2 pl-2' type="text" name="city" id="city" placeholder='Stadt'/>
           <input ref={zipCodeRef} className='border-2 pl-2' type="number" name="zipCode" id="zipCode" placeholder='Postleitzahl'/>  
-      </div>
-      <div className='mb-5'>
-          <input ref={streetRef} className='border-2 pl-2' type="text" name="street" id="street" placeholder='Straße'/>
-          <input ref={streetAdressRef} className='border-2 pl-2' type="text" name="streetAdress" id="streetAdress" placeholder='Hausnummer'/>
       </div>
       <div>
           <input ref={emailRef} className='mb-4 border-2 pl-2 block w-full' type="email" name="email" id="email" placeholder='E-Mail'/>
