@@ -65,29 +65,29 @@ const Registration: FC = () => {
 
 
   return (
-    <main className='flex justify-center'>
-      <section className='w-1/3'>
+    <main >
+      <section className='p-4 mx-auto'>
       <h1 className='text-2xl mb-10'>Registriere dein Unternehmen</h1>
       
-      <div className='flex flex-wrap justify-between w-full'>
-        <div>
+      <div className='flex flex-wrap justify-between'>
+          <div className='w-40'>
           <label className='block' htmlFor="firstName">Vorname</label>
-          <input ref={firstNameRef} className='border-2 mb-2 pl-2 rounded-lg' type="text" name="firstName" id="firstName"/>
+          <input ref={firstNameRef} className='w-40 border-2 mb-2 pl-2 rounded-lg' type="text" name="firstName" id="firstName"/>
         </div>
-        <div>
+          <div className='w-40'>
           <label className='block' htmlFor="lastName">Nachname</label>
-          <input ref={lastNameRef} className='border-2 mb-2 pl-2 rounded-lg' type="text" name="lastName" id="lastName"/>
+          <input ref={lastNameRef} className='w-40 border-2 mb-2 pl-2 rounded-lg' type="text" name="lastName" id="lastName"/>
         </div>
       </div>
       
-        <div className='flex flex-wrap justify-between w-full'>
-      <div>
+        <div className='flex flex-wrap justify-between'>
+      <div className='w-40'>
           <label className='block' htmlFor="companyName">Unternehmensname</label>
-          <input ref={companyNameRef} className='border-2 pl-2  rounded-lg' type="text" name="companyName" id="companyName" />
+          <input ref={companyNameRef} className='border-2 pl-2 w-40 rounded-lg' type="text" name="companyName" id="companyName" />
       </div>
-      <div>
+      <div className='w-40'>
           <label className='block' htmlFor="telephoneNumber">Telefonnummer</label>
-          <input ref={telephoneNumberRef} className='border-2 pl-2  mb-5 rounded-lg' type="tel" name="telephoneNumber" id="telephoneNumber"  pattern='[0-9]*"'/>
+          <input ref={telephoneNumberRef} className='w-40 border-2 pl-2  mb-5 rounded-lg' type="tel" name="telephoneNumber" id="telephoneNumber"  pattern='[0-9]*"'/>
       </div>
       </div>
      
@@ -107,19 +107,19 @@ const Registration: FC = () => {
       </div>
 
         <div className='flex flex-wrap justify-between mb-4 '>
-        <div>
+          <div className='w-40'>
             <label className='block' htmlFor="city">Stadt</label>
-          <input ref={cityRef} className='border-2 pl-2 rounded-lg' type="text" name="city" id="city" />
+          <input ref={cityRef} className='border-2 w-40  rounded-lg' type="text" name="city" id="city" />
         </div>
         <div>
             <label className='block' htmlFor="zipCode">Postleitzahl</label>
-          <input ref={zipCodeRef} className='border-2 pl-2 rounded-lg' type="text" name="zipCode" id="zipCode" />  
+          <input ref={zipCodeRef} className='border-2 w-40 rounded-lg' type="text" name="zipCode" id="zipCode" />  
         </div>
       </div>
 
       <div>
           <label htmlFor="email">E-Mail</label>
-          <input ref={emailRef} className='mb-4 border-2 pl-2 block rounded-lg' type="email" name="email" id="email"/>
+          <input ref={emailRef} className='w-full mb-4 border-2 pl-2 block rounded-lg' type="email" name="email" id="email"/>
           
           <label htmlFor="password">Passwort</label>
           <input onChange={(e) => setPassword(e.target.value)} className='border-2 pl-2 block w-full mb-2 rounded-lg' type="password" name="password" id="password" placeholder='Passwort'/>
