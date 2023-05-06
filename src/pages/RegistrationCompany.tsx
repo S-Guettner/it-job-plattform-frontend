@@ -59,7 +59,7 @@ const Registration: FC = () => {
     const zipCodeRegex = /^(?!01000|99999)(0[1-9]\d{3}|[1-9]\d{4})$/
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
 
-  
+    
 
 }
 
@@ -72,28 +72,28 @@ const Registration: FC = () => {
       <div className='flex justify-between w-full'>
         <div>
           <label className='block' htmlFor="firstName">Vorname</label>
-          <input ref={firstNameRef} className='border-2 mb-2 pl-2' type="text" name="firstName" id="firstName"/>
+          <input ref={firstNameRef} className='border-2 mb-2 pl-2 rounded-lg' type="text" name="firstName" id="firstName"/>
         </div>
         <div>
           <label className='block' htmlFor="lastName">Nachname</label>
-          <input ref={lastNameRef} className='border-2 mb-2 pl-2' type="text" name="lastName" id="lastName"/>
+          <input ref={lastNameRef} className='border-2 mb-2 pl-2 rounded-lg' type="text" name="lastName" id="lastName"/>
         </div>
       </div>
       
         <div className='flex justify-between w-full'>
       <div>
           <label className='block' htmlFor="companyName">Unternehmensname</label>
-          <input ref={companyNameRef} className='border-2 pl-2 ' type="text" name="companyName" id="companyName" />
+          <input ref={companyNameRef} className='border-2 pl-2  rounded-lg' type="text" name="companyName" id="companyName" />
       </div>
       <div>
           <label className='block' htmlFor="telephoneNumber">Telefonnummer</label>
-          <input ref={telephoneNumberRef} className='border-2 pl-2  mb-5' type="tel" name="telephoneNumber" id="telephoneNumber"  pattern='[0-9]*"'/>
+          <input ref={telephoneNumberRef} className='border-2 pl-2  mb-5 rounded-lg' type="tel" name="telephoneNumber" id="telephoneNumber"  pattern='[0-9]*"'/>
       </div>
       </div>
      
       <div>
           <label htmlFor="countries">Land</label>
-          <select value={countryState} onChange={(e) => setCountryState(e.target.value)} className='mb-2 block border-2 w-full' name="countries" id="countries">
+          <select value={countryState} onChange={(e) => setCountryState(e.target.value)} className='mb-2 block border-2 w-full rounded-lg' name="countries" id="countries">
             {countries?.map((country) => {
                 return(
                     <option 
@@ -109,20 +109,20 @@ const Registration: FC = () => {
       <div className='flex justify-between mb-4'>
         <div>
             <label className='block' htmlFor="city">Stadt</label>
-          <input ref={cityRef} className='border-2 pl-2' type="text" name="city" id="city" />
+          <input ref={cityRef} className='border-2 pl-2 rounded-lg' type="text" name="city" id="city" />
         </div>
         <div>
             <label className='block' htmlFor="zipCode">Postleitzahl</label>
-          <input ref={zipCodeRef} className='border-2 pl-2' type="text" name="zipCode" id="zipCode" />  
+          <input ref={zipCodeRef} className='border-2 pl-2 rounded-lg' type="text" name="zipCode" id="zipCode" />  
         </div>
       </div>
 
       <div>
           <label htmlFor="email">E-Mail</label>
-          <input ref={emailRef} className='mb-4 border-2 pl-2 block' type="email" name="email" id="email"/>
+          <input ref={emailRef} className='mb-4 border-2 pl-2 block rounded-lg' type="email" name="email" id="email"/>
           
           <label htmlFor="password">Passwort</label>
-          <input onChange={(e) => setPassword(e.target.value)} className='border-2 pl-2 block w-full mb-2' type="password" name="password" id="password" placeholder='Passwort'/>
+          <input onChange={(e) => setPassword(e.target.value)} className='border-2 pl-2 block w-full mb-2 rounded-lg' type="password" name="password" id="password" placeholder='Passwort'/>
           {/* check for matching passwords */}
           {password != confirmPassword && confirmPassword != undefined ? <p>Die Passwörter stimmen nicht überein.</p> : ""}
           <p>{passwordErrorMessage}</p>
