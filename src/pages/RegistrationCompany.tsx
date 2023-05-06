@@ -1,4 +1,5 @@
 import { FC,useState, useEffect} from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import countriesListGerman from '../data/countriesGerman.json'
 import countriesListEnglish from '../data/countriesEnglish.json'
 
@@ -29,33 +30,48 @@ const Registration: FC = () => {
 
     
   return (
-    <main>
-      <input className='border-2 block' type="email" name="email" id="email" placeholder='email'/>
-      <input className='border-2 block' type="password" name="password" id="password" placeholder='password'/>
-      <input className='border-2 block mb-20' type="password" name="password" id="password" placeholder='confirm password'/>
-        <input className='border-2' placeholder='Name of the Company' type="text" name="companyName" id="companyName" />
-        <p>Company Headquarters</p>
-          <select className='block border-2' name="countries" id="countries">
+    <main className='flex justify-center'>
+      <section>
+      <h1 className='text-2xl mb-10'>Registriere dein Unternehmen</h1>
+      <div className=''>
+        <input className='border-2 mb-2 pl-2' type="text" name="firstName" id="firstName" placeholder='Vorname'/>
+        <input className='border-2 mb-2 pl-2' type="text" name="lastName" id="lastName" placeholder='Nachname'/>
+      </div>
+      <div>
+        <input className='border-2 pl-2 ' type="text" name="companyName" id="companyName" placeholder='Unternehmensname'/>
+        <input className='border-2 pl-2  mb-5' type="tel" name="telephoneNumber" id="telephoneNumber" placeholder='Telefonnummer' pattern='[0-9]*"'/>
+      </div>
+      <div>
+          <select className='mb-2 block border-2 w-full' name="countries" id="countries">
               {countries?.map((country) => {
                 return(
-                    <option value={country.alpha3}>{country.name}</option>
+                    <option 
+                    key={uuidv4()}
+                    value={country.alpha3}>
+                      {country.name}
+                      </option>
                 )
               })}
           </select>
-          <div className='block'>
-        <input className='border-2' type="text" name="city" id="city" placeholder='city'/>
-        <input className='border-2' type="number" name="zip-code" id="zip-code" placeholder='zip-code'/>  
-          </div>
-          <div>
-        <input className='border-2' type="text" name="street" id="street" placeholder='street'/>
-        <input className='border-2' type="text" name="streetAdress" id="streetAdress" placeholder='street adress'/>
-          </div>
-      <input className='border-2 w-32' type="number" min="1900" max="2099" step="1" name="foundingYear" id="foundingYear" placeholder='founding year'/>
-      <input className='border-2 w-32 block' type="number" min="1"  step="1" name="employes" id="employes" placeholder='employes'/>
-      <p>company logo</p>
-      <input className='block mb-10' type="file" name="" id="" />
+      </div>
+      <div className='block mb-2'>
+        <input className='border-2 pl-2' type="text" name="city" id="city" placeholder='Stadt'/>
+        <input className='border-2 pl-2' type="number" name="zip-code" id="zip-code" placeholder='Postleitzahl'/>  
+      </div>
+      <div className='mb-5'>
+        <input className='border-2 pl-2' type="text" name="street" id="street" placeholder='Straße'/>
+        <input className='border-2 pl-2' type="text" name="streetAdress" id="streetAdress" placeholder='Hausnummer'/>
+      </div>
+      <div>
+        <input className='border-2 pl-2 block w-full' type="email" name="email" id="email" placeholder='E-Mail'/>
+        <input className='border-2 pl-2 block w-full' type="password" name="password" id="password" placeholder='Passwort'/>
+        <input className='border-2 pl-2 mb-7 block w-full' type="password" name="confirm-password" id="confirm-password" placeholder='Passwort wiederholen'/>
+      </div>
 
-      <button className='border-2 p-2 ml-10 rounded-lg'>Submit</button>
+
+
+      <button className='border-2 p-2  rounded-lg'>Registrieren</button>
+      </section>
     </main>
   )
 }
