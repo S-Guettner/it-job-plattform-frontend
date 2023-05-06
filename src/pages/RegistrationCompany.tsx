@@ -50,7 +50,7 @@ const Registration: FC = () => {
 
   const [countryState,setCountryState] = useState("Deutschland")
 
-
+/* todo: add errors and form validation */
   const [formError, setFormError] = useState("")
   
   const formValidationMessage = () => {
@@ -60,7 +60,6 @@ const Registration: FC = () => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
 
     
-
 }
 
 
@@ -128,7 +127,7 @@ const Registration: FC = () => {
           <p>{passwordErrorMessage}</p>
           
           <label htmlFor="confirmPassword">Passwort wiederholen</label>
-          <input onClick={passwordValidationMessage} onChange={(e) => setConfirmPassword(e.target.value)} className='border-2 pl-2 mb-7 block w-full' type="password" name="confirmPassword" id="confirmPassword"/>
+          <input onClick={passwordValidationMessage} onChange={(e) => setConfirmPassword(e.target.value)} className='border-2 pl-2 mb-7 rounded-lg block w-full' type="password" name="confirmPassword" id="confirmPassword"/>
       </div>
 
         <button onClick={formValidationMessage} className='border-2 p-2  rounded-lg'>Registrieren</button>
