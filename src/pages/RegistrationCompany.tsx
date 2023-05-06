@@ -44,8 +44,6 @@ const Registration: FC = () => {
   const telephoneNumberRef = useRef<HTMLInputElement>(null)
   const cityRef = useRef<HTMLInputElement>(null)
   const zipCodeRef = useRef<HTMLInputElement>(null)
-  const streetRef = useRef<HTMLInputElement>(null)
-  const streetAdressRef = useRef<HTMLInputElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
 
   const [countryState,setCountryState] = useState("Deutschland")
@@ -57,8 +55,6 @@ const Registration: FC = () => {
     telephoneNumberError:"",
     cityError:"",
     zipCodeError:"",
-    streetError:"",
-    streetAdressError:"",
     emailError:""
   })
   
