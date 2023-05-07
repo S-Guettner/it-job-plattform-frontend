@@ -2,7 +2,6 @@ import { FC,useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import programmingLanguages from '../data/programmingLanguages.json'
 
-
 const CreateNewJobPost: FC = () => {
 
 
@@ -10,6 +9,13 @@ const CreateNewJobPost: FC = () => {
     console.log(languageArr)
  
 
+    const clickHandler = () => {
+        fetch("http://localhost:9999/api/v1/company-new-job-post" , {
+
+        })
+    }
+
+    
 
   return (
     <main>
@@ -47,6 +53,8 @@ const CreateNewJobPost: FC = () => {
                   })}
               </div>
         </div>
+
+        <button>Neue Stellenausschreibung erstellen</button>
     </main>
   )
 }
