@@ -1,7 +1,7 @@
 import { FC,useState, useRef} from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import countriesListGerman from '../data/countriesGerman.json'
-
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -17,6 +17,8 @@ interface country {
 
 
 const Registration: FC = () => {
+
+  const navigator = useNavigate()
 
   const passwordValidationMessage = () => {
     if (password === undefined || password.length < 9){
@@ -58,9 +60,28 @@ const Registration: FC = () => {
     const telephoneNumberRegex = /^(\+49[-. ]?)?(\(0\)[-. ]?)?([0-9]{3,4}[-. ]?){2}[0-9]{3,4}$/i
     const zipCodeRegex = /^(?!01000|99999)(0[1-9]\d{3}|[1-9]\d{4})$/
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
-
-    
 }
+
+  const companyRegistration = () => {
+    fetch("http://localhost:9999/api/v1/new-company" , {
+      method:"POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(
+        {
+          "userEmail": emailRef.current?.value,
+          "userPassword": confirmPassword,
+          "firstName": firstNameRef.current?.value,
+          "lastName": lastNameRef.current?.value,
+          "companyName": companyNameRef.current?.value,
+          "telephoneNumber": telephoneNumberRef.current?.value,
+          "country": cityRef.current?.value,
+          "city": cityRef.current?.value,
+          "zipCode": zipCodeRef.current?.value,
+        }
+      )
+    })
+    navigator('/company-login')
+  } 
 
 
   return (
@@ -130,7 +151,7 @@ const Registration: FC = () => {
           <input onClick={passwordValidationMessage} onChange={(e) => setConfirmPassword(e.target.value)} className='border-2 pl-2 mb-7 rounded-lg block w-full' type="password" name="confirmPassword" id="confirmPassword"/>
       </div>
 
-        <button onClick={formValidationMessage} className='border-2 p-2  rounded-lg'>Registrieren</button>
+        <button onClick={companyRegistration} className='border-2 p-2  rounded-lg'>Registrieren</button>
       </section>
     </main>
   )
