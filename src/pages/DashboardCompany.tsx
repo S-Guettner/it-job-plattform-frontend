@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import useUserStore from '../global/zustand.ts'
 import { useNavigate } from 'react-router-dom'
 import LogoutButton from '../components/LogoutButton.tsx'
+import CreateNewJobPost from '../components/CreateNewJobPost.tsx'
+
 
 const DashboardCompany: FC = () => {
 
@@ -25,6 +27,7 @@ const DashboardCompany: FC = () => {
 
   return (
     <div>
+      <CreateNewJobPost />
       <h1>Yeahhhhh!!!!</h1>
       <LogoutButton />
       <p>{userState.userLoggedInState.toString()}</p>  
