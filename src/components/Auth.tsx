@@ -22,7 +22,7 @@ const Auth = () => {
     }, [])
 
     if (isLoading) {
-        return <h1>Loading...</h1>
+        navigator("/company-login")
     }
     else {
         return (
