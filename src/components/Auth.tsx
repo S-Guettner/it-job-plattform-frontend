@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import DashboardCompany from "../pages/DashboardCompany"
 import Login from "../pages/LoginCompany"
+import LoginCompany from "../pages/LoginCompany.tsx" 
 
 const Auth = () => {
 
@@ -22,7 +23,7 @@ const Auth = () => {
     }, [])
 
     if (isLoading) {
-        navigator("/company-login")
+        return <LoginCompany/>
     }
     else {
         return (
